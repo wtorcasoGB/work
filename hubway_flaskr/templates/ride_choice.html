@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Ride Choice</h2>
+  <form action="{{ url_for('ride_choice') }}" method="post">
+    <dl>
+      <dt>Ride From:
+      <dd><input type="text" name="ride_from">
+      <dt>Ride To:
+      <dd><input type="text" name="ride_to">
+      <dd><input type="submit" value="Ride">
+    </dl>
+  </form>
+{% endblock %}
