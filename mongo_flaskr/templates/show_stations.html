@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <h2>Hubway Status</h2>
+    <table border=2>
+    <tr>
+    <td valign="top">
+    <table border=2>
+    <tr><td><strong>Stations</td><td><strong>Docks</td></tr>
+    <ul class=stations>
+    {% for station in stations %}
+      <tr><td>{{ station.name }}</td><td>{{ station.docks }}</td></tr>
+    {% else %}
+      <li><em>Unbelievable.  No stations at all!</em>
+    {% endfor %}
+    </ul>
+    </table>
+    </td>
+    <td>
+    <table border=2>
+      <tr>
+      <td><strong>Bike</strong></td>
+      <td><strong>In Dock</strong></td>
+      <td><strong>At Station</strong></td>
+      </tr>
+      {% for bike in bikes %}
+        <tr>
+        <td>{{ bike.bike }}</td>
+        <td>{{ bike.dock }}</td>
+        <td>{{ bike.station }}</td>
+        </tr>
+      {% else %}
+        <li><em>Unbelievable.  No stations at all!</em>
+      {% endfor %}
+    </table>
+    </td>
+    </tr>
+    </table>
+  {% else %}
+    <h2>Please log in first ....</h2>
+  {% endif %}
+{% endblock %}
